@@ -1,0 +1,111 @@
+{
+  "live_stripe_payload_from_zapier": {
+    "description": "Actual payload from production Zapier Zap - Stripe Checkout Session Completed",
+    "webhook_url": "https://hooks.zapier.com/hooks/catch/23865094/uspssek/",
+    "payload": {
+      "id": "cs_test_d1rGUEoXemsVWgW3LNzRe6858",
+      "object": "checkout.session",
+      "amount_total": 1000,
+      "currency": "usd",
+      "payment_status": "paid",
+      "customer_details": {
+        "email": "sample@email.com",
+        "name": "Test User"
+      },
+      "created": 1731402241,
+      "receipt_url": "https://stripe.com/receipts/test",
+      "charges": {
+        "data": [
+          {
+            "receipt_url": "https://stripe.com/receipts/test"
+          }
+        ]
+      },
+      "balance_transaction": "txn_test_12345"
+    },
+    "airtable_mapping": {
+      "Transaction ID": "cs_test_d1rGUEoXemsVWgW3LNzRe6858",
+      "Amount Paid": 1000,
+      "Currency": "usd",
+      "Payment Status": "paid",
+      "Customer Email": "sample@email.com",
+      "Customer Name": "Test User",
+      "Receipt URL": "https://stripe.com/receipts/test",
+      "Payment Timestamp": "2024-11-12T08:44:01.000Z",
+      "Payout Transaction ID": "txn_test_12345"
+    }
+  },
+  "stripe_adhoc_payment_example": {
+    "description": "Example Adhoc session payment with host payout calculation",
+    "payload": {
+      "id": "cs_test_adhoc_001",
+      "object": "checkout.session",
+      "amount_total": 1800,
+      "currency": "aud",
+      "payment_status": "paid",
+      "customer_details": {
+        "email": "member@example.com",
+        "name": "Alex Member"
+      },
+      "created": 1731402241,
+      "charges": {
+        "data": [
+          {
+            "receipt_url": "https://stripe.com/receipts/adhoc_001"
+          }
+        ]
+      },
+      "balance_transaction": "txn_adhoc_001"
+    },
+    "host_payout_calculation": {
+      "amount_paid_cents": 1800,
+      "amount_paid_dollars": 18.00,
+      "host_percentage": 0.67,
+      "host_payout": 12.06,
+      "platform_fee": 5.94
+    }
+  },
+  "stripe_weekly_payment_example": {
+    "description": "Example Weekly subscription payment with host payout calculation",
+    "payload": {
+      "id": "cs_test_weekly_001",
+      "object": "checkout.session",
+      "amount_total": 4000,
+      "currency": "aud",
+      "payment_status": "paid",
+      "customer_details": {
+        "email": "subscriber@example.com",
+        "name": "Sam Subscriber"
+      },
+      "created": 1731402241,
+      "charges": {
+        "data": [
+          {
+            "receipt_url": "https://stripe.com/receipts/weekly_001"
+          }
+        ]
+      },
+      "balance_transaction": "txn_weekly_001"
+    },
+    "host_payout_calculation": {
+      "amount_paid_cents": 4000,
+      "amount_paid_dollars": 40.00,
+      "host_percentage": 0.75,
+      "host_payout": 30.00,
+      "platform_fee": 10.00
+    }
+  },
+  "twilio_verification_success": {
+    "description": "Successful SMS verification from Twilio",
+    "webhook_url": "https://hooks.zapier.com/hooks/catch/23865094/u83wuma/",
+    "payload": {
+      "To": "+61412345678",
+      "Status": "approved",
+      "Channel": "sms",
+      "Valid": true,
+      "ServiceSid": "VAxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "AccountSid": "ACxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  }
+}
+
